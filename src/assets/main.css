@@ -58,3 +58,12 @@
 .category-scroll::-webkit-scrollbar {
   height: 8px;
 }
+.card-title,
+.card-location,
+.card-description {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}

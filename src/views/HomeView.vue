@@ -81,37 +81,37 @@ onMounted(() => {
         disableOnInteraction: false,
       }"
       :modules="[Autoplay]"
-      class="mySwiper md:w-2/3 lg:w-full"
+      class="mySwiper w-full lg:w-full"
     >
       <SwiperSlide
-        class="w-full overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat lg:max-w-4xl"
+        class="w-full overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat md:max-w-2xl lg:max-w-4xl"
         ><div class="bg-linear h-[18rem]">
-          <Gift
+          <!-- <Gift
             class="absolute top-1/2 right-72 z-50 -translate-y-1/2 scale-95"
-          />
+          /> -->
           <Intro />
         </div>
       </SwiperSlide>
       <SwiperSlide
-        class="relative overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat lg:max-w-4xl"
+        class="relative overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat md:max-w-2xl lg:max-w-4xl"
         ><div class="bg-linear h-72">
-          <Gift
+          <!-- <Gift
             class="absolute top-1/2 right-72 z-50 -translate-y-1/2 scale-95"
-          />
+          /> -->
           <Intro />
         </div>
       </SwiperSlide>
       <SwiperSlide
-        class="relative w-full overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat lg:max-w-4xl"
+        class="relative w-full overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat md:max-w-2xl lg:max-w-4xl"
         ><div class="bg-linear h-[18rem]">
-          <Gift
+          <!-- <Gift
             class="absolute top-1/2 right-72 z-50 -translate-y-1/2 scale-95"
-          />
+          /> -->
           <Intro />
         </div>
       </SwiperSlide>
       <SwiperSlide
-        class="relative w-full overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat lg:max-w-4xl"
+        class="relative w-full overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat md:max-w-2xl lg:max-w-4xl"
         ><div class="bg-linear h-[18rem]">
           <!-- <Gift
               class="absolute z-50 top-1/2 scale-95 -translate-y-1/2 right-72"
@@ -153,14 +153,15 @@ onMounted(() => {
   </div>
   <!-- card -->
   <div class="container relative mx-auto pt-8 pb-16">
-    <div class="flex flex-wrap items-center gap-4">
+    <div class="flex flex-wrap items-start justify-start gap-5">
       <Card
         v-for="card in products.product"
+        class="basis-[45%] md:basis-[30%] lg:basis-[18%]"
         :key="card.id"
         :title="card.name"
         :img="card.image_url"
         :description="card.description"
-        :price="card.price"
+        :price="card.base_price"
         :location="card.location"
         :status="card.status"
         :category="card.Categories"

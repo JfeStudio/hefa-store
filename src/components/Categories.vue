@@ -11,7 +11,7 @@
 import { reactive } from "vue";
 defineProps({
   categories: {
-    type: Array,
+    type: String,
     ruquired: true,
   },
 });
