@@ -23,8 +23,21 @@
                     <h3
                       class="mb-4 text-xl font-bold text-slate-800 lg:text-lg"
                     >
-                      Masuk
+                      Daftar
                     </h3>
+                    <div class="mb-4">
+                      <label
+                        for="form-username"
+                        class="form-label mb-2 inline-block text-base font-normal text-gray-800 lg:text-sm"
+                        >Nama</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control m-0 block w-full rounded-xl border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-base font-normal text-gray-700 transition ease-in-out placeholder:text-sm focus:border-indidog focus:bg-white focus:text-gray-700 focus:outline-none lg:placeholder:text-xs"
+                        id="form-username"
+                        placeholder="Nama Lengkap"
+                      />
+                    </div>
                     <div class="mb-4">
                       <label
                         for="form-email"
@@ -57,23 +70,24 @@
                         class="mb-3 inline-block w-full rounded-xl bg-indidog px-6 py-3 text-sm font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:opacity-95 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg lg:mb-4"
                         type="button"
                       >
-                        Login
+                        Daftar
                       </button>
-                      <a
+                      <!-- <a
                         class="text-sm text-gray-800 lg:text-[.85rem]"
                         href="#!"
                         >Lupa password?</a
-                      >
+                      > -->
                     </div>
                     <div
                       class="flex items-center justify-center gap-x-2 text-sm lg:text-[.85rem]"
                     >
                       <p class="font-normal text-slate-800">
-                        Belum punya akun?
+                        Sudah punya akun?
                       </p>
-                      <span
+                      <RouterLink
+                        :to="{ name: 'Login' }"
                         class="cursor-pointer font-bold text-indidog underline hover:no-underline"
-                        >Daftar di sini</span
+                        >Masuk di sini</RouterLink
                       >
                     </div>
                   </form>
@@ -90,7 +104,7 @@
   </section>
 </template>
 <script setup>
-import { useRouter } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
 const router = useRouter();
 </script>
 <style lang=""></style>
