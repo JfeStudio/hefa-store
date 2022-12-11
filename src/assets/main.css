@@ -67,3 +67,7 @@
   -webkit-line-clamp: 1;
   overflow: hidden;
 }
+.gradient-auth {
+  background: linear-gradient(360deg, #a06ece 50%, rgba(160, 110, 206, 0) 100%);
+  opacity: 0.5;
+}

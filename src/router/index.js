@@ -42,11 +42,11 @@ const router = createRouter({
     //   name: "Services",
     //   component: () => import("../views/Services.vue"),
     // },
-    // {
-    //   path: "/profile",
-    //   name: "Profile",
-    //   component: () => import("../views/Profile.vue"),
-    // },
+    {
+      path: "/login",
+      name: "Login",
+      component: () => import("../views/Login.vue"),
+    },
   ],
 });
 

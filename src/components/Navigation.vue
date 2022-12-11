@@ -183,7 +183,7 @@
             >
               <input
                 type="text"
-                class="form-control relative m-0 block w-full min-w-0 flex-auto bg-white bg-clip-padding px-3 py-2 text-xs font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
+                class="form-control relative m-0 block w-full min-w-0 flex-auto bg-white bg-clip-padding px-3 py-2 text-xs font-normal text-gray-700 transition ease-in-out focus:bg-white focus:text-gray-700 focus:outline-none"
                 placeholder="Cari di sini.."
                 aria-label="Search"
                 aria-describedby="button-addon2"

@@ -152,7 +152,7 @@ onMounted(() => {
     </div>
   </div>
   <!-- card -->
-  <div class="container relative mx-auto pt-8 pb-16">
+  <div class="container relative mx-auto pt-8 pb-24">
     <div class="flex flex-wrap items-start justify-start gap-5">
       <Card
         v-for="card in products.product"
