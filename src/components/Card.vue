@@ -1,7 +1,7 @@
 <template lang="">
-  <div class="basis-1/5 rounded-md border border-slate-100 p-2 shadow">
+  <div class="rounded-md border border-slate-100 p-2 shadow">
     <RouterLink to="#">
-      <img class="w-full object-cover" :src="img" :alt="imgName" />
+      <img class="h-36 w-36 border object-cover" :src="img" :alt="imgName" />
     </RouterLink>
     <div class="pt-2 pb-1">
       <h3 class="text-[.925rem] font-normal text-slate-800">
@@ -16,7 +16,7 @@
         <span class="text-sm text-slate-800">{{ price }}</span>
         <span class="text-sm text-slate-800">{{ location }}</span>
         <span>{{ status }}</span>
-        <span v-for="item in category" :key="item.id" class="">
+        <span class="text-xs" v-for="item in category" :key="item.id">
           {{ item.name }}
         </span>
       </div>

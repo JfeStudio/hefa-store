@@ -7,6 +7,8 @@ import Card from "../components/Card.vue";
 import Categories from "../components/Categories.vue";
 import { reactive, onMounted, watchEffect } from "vue";
 import { getProduct, getCategory } from "../plugin/Api";
+import { TextSearch } from "../stores/products.js";
+import debounce from "../utils/debounce.js";
 
 // Import Swiper styles
 import "swiper/css";
@@ -26,9 +28,10 @@ const products = reactive({
 
 const onGetProduct = async () => {
   getProduct({
-    page: 5,
+    page: 1,
     per_page: products.perPage,
-    category_id: products.idCategory || null,
+    category_id: products.idCategory || "",
+    search: TextSearch.value || "",
   }).then((res) => {
     products.product = res.data;
   });

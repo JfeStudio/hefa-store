@@ -182,11 +182,12 @@
               class="input-group relative flex w-full flex-wrap items-stretch"
             >
               <input
-                type="search"
+                type="text"
                 class="form-control relative m-0 block w-full min-w-0 flex-auto bg-white bg-clip-padding px-3 py-2 text-xs font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
                 placeholder="Cari di sini.."
                 aria-label="Search"
                 aria-describedby="button-addon2"
+                @input="delaySearch"
               />
               <span
                 class="input-group-text flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-gray-700"
@@ -389,51 +390,13 @@
     </nav>
   </div>
 </template>
-<script>
+<script setup>
 import { RouterLink } from "vue-router";
-// import "flowbite";
+import { TextSearch } from "../stores/products.js";
+import debounce from "../utils/debounce.js";
 
-// export default {
-//   name: "navigation",
-
-//   data() {
-//     return {
-//       scrolledNav: null,
-//       mobile: null,
-//       mobileNav: null,
-//       windowWidth: null,
-//     };
-//   },
-//   created() {
-//     window.addEventListener("resize", this.checkScreen);
-//     this.checkScreen();
-//   },
-//   mounted() {
-//     window.addEventListener("scroll", this.updateScroll);
-//     // this.updateScroll();
-//   },
-//   methods: {
-//     toggleMobileNav() {
-//       this.mobileNav = !this.mobileNav;
-//     },
-//     updateScroll() {
-//       const scrollPosition = window.scrollY;
-//       if (scrollPosition <= 50) {
-//         this.scrolledNav = false;
-//         return;
-//       }
-//       this.scrolledNav = true;
-//     },
-//     checkScreen() {
-//       this.windowWidth = window.innerWidth;
-//       if (this.windowWidth <= 750) {
-//         this.mobile = true;
-//         return;
-//       }
-//       this.mobile = false;
-//       this.mobileNav = false;
-//     },
-//   },
-// };
+const delaySearch = debounce((e) => {
+  TextSearch.value = e.target.value;
+}, 500);
 </script>
 <style lang=""></style>
