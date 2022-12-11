@@ -49,9 +49,6 @@
 .bg-linear {
   background: linear-gradient(90deg, #ffe9ca 63%, rgba(253, 253, 202, 0) 100%);
 }
-.categories:first-child {
-  @apply bg-indidog text-white;
-}
 .swiper-slide {
   @apply scale-90 transition-all;
 }

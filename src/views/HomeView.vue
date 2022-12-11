@@ -21,12 +21,14 @@ const products = reactive({
   product: [],
   category: [],
   perPage: 30,
+  idCategory: 0,
 });
 
 const onGetProduct = async () => {
   getProduct({
     page: 5,
     per_page: products.perPage,
+    category_id: products.idCategory || null,
   }).then((res) => {
     products.product = res.data;
   });
@@ -122,17 +124,27 @@ onMounted(() => {
     <div
       class="category-scroll mt-5 flex w-full items-center gap-x-3 overflow-x-scroll overscroll-x-auto pb-2"
     >
-      <div
-        class="categories flex min-w-max items-center justify-center gap-1.5 rounded-lg border bg-soft-indidog py-2.5 px-5"
+      <button
+        class="categories flex min-w-max items-center justify-center gap-1.5 rounded-lg border py-2.5 px-5"
+        @click="products.idCategory = 0"
+        :class="
+          products.idCategory == 0 ? 'bg-indidog text-white' : 'bg-soft-indidog'
+        "
       >
         <i class="bx bx-search text-xl leading-none"></i>
 
         <span class="text-sm font-normal">Semua</span>
-      </div>
+      </button>
       <Categories
         v-for="cate in products.category"
         :key="cate.id"
         :categories="cate.name"
+        @click="products.idCategory = cate.id"
+        :class="
+          products.idCategory == cate.id
+            ? 'bg-indidog  text-slate-50'
+            : 'bg-soft-indidog'
+        "
       />
     </div>
   </div>
