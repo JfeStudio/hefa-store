@@ -1,40 +1,18 @@
 <template>
-  <div class="category">
-    <h2 class="text-xl font-semibold">Telusuri Kategori</h2>
-    <div class="flex items-center gap-x-3">
-      <div
-        v-for="(item, index) in categories"
-        :key="index"
-        class="categories mt-5 flex items-center justify-center gap-1.5 py-2.5 px-5 rounded-lg bg-soft-indidog"
-      >
-        <i class="text-xl leading-none bx bx-search"></i>
+  <div
+    class="categories flex min-w-max items-center justify-center gap-1.5 rounded-lg border bg-soft-indidog py-2.5 px-5"
+  >
+    <i class="bx bx-search text-xl leading-none"></i>
 
-        <span class="font-normal text-sm">{{ item.title }}</span>
-      </div>
-    </div>
+    <span class="text-sm font-normal">{{ categories }}</span>
   </div>
 </template>
 <script setup>
 import { reactive } from "vue";
-const categories = reactive([
-  {
-    title: "Semua",
+defineProps({
+  categories: {
+    type: Array,
+    ruquired: true,
   },
-  {
-    title: "Hobi",
-  },
-  {
-    title: "Kendaraan",
-  },
-  {
-    title: "Baju",
-  },
-  {
-    title: "Elektronik",
-  },
-  {
-    title: "Kesehatan",
-  },
-]);
-defineProps(["title"]);
+});
 </script>

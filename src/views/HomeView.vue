@@ -5,8 +5,8 @@ import { Autoplay } from "swiper";
 import Intro from "../components/Intro.vue";
 import Card from "../components/Card.vue";
 import Categories from "../components/Categories.vue";
-import { reactive, onMounted } from "vue";
-import { getProduct } from "../plugin/Api";
+import { reactive, onMounted, watchEffect } from "vue";
+import { getProduct, getCategory } from "../plugin/Api";
 
 // Import Swiper styles
 import "swiper/css";
@@ -19,14 +19,32 @@ import "swiper/css";
 // import { Pagination } from "swiper";
 const products = reactive({
   product: [],
+  category: [],
+  perPage: 30,
 });
+
 const onGetProduct = async () => {
-  getProduct().then((res) => {
+  getProduct({
+    page: 5,
+    per_page: products.perPage,
+  }).then((res) => {
     products.product = res.data;
   });
 };
-onMounted(() => {
+
+const onGetCategory = async () => {
+  getCategory().then(({ data }) => {
+    products.category = data;
+  });
+};
+const loadMore = () => {
+  products.perPage += 30;
+};
+watchEffect(() => {
   onGetProduct();
+});
+onMounted(() => {
+  onGetCategory();
 });
 
 // export default {
@@ -48,83 +66,100 @@ onMounted(() => {
 <template>
   <!-- main content -->
   <main class="pt-24">
-    <div class="">
-      <Swiper
-        :centeredSlides="true"
-        :slidesPerView="'auto'"
-        :spaceBetween="30"
-        :loop="true"
-        :autoplay="{
-          delay: 2500,
-          disableOnInteraction: false,
-        }"
-        :modules="[Autoplay]"
-        class="mySwiper w-full md:w-2/3 lg:w-full"
-      >
-        <SwiperSlide
-          class="relative rounded-3xl overflow-hidden lg:w-3/4 w-full bg-hero-mosque bg-right bg-no-repeat"
-          ><div class="bg-linear h-[18rem]">
-            <Gift
-              class="absolute z-50 top-1/2 scale-95 -translate-y-1/2 right-72"
-            />
-            <Intro />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          class="relative rounded-3xl overflow-hidden lg:w-3/4 w-full bg-hero-mosque bg-right bg-no-repeat"
-          ><div class="bg-linear h-72">
-            <Gift
-              class="absolute z-50 top-1/2 scale-95 -translate-y-1/2 right-72"
-            />
-            <Intro />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          class="relative rounded-3xl overflow-hidden lg:w-3/4 w-full bg-hero-mosque bg-right bg-no-repeat"
-          ><div class="bg-linear h-[18rem]">
-            <Gift
-              class="absolute z-50 top-1/2 scale-95 -translate-y-1/2 right-72"
-            />
-            <Intro />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          class="relative rounded-3xl overflow-hidden lg:w-3/4 w-full bg-hero-mosque bg-right bg-no-repeat"
-          ><div class="bg-linear h-[18rem]">
-            <!-- <Gift
+    <Swiper
+      :centeredSlides="true"
+      :slidesPerView="'auto'"
+      :spaceBetween="-20"
+      :loop="true"
+      :autoplay="{
+        delay: 2500,
+        disableOnInteraction: false,
+      }"
+      :modules="[Autoplay]"
+      class="mySwiper md:w-2/3 lg:w-full"
+    >
+      <SwiperSlide
+        class="w-full overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat lg:max-w-4xl"
+        ><div class="bg-linear h-[18rem]">
+          <Gift
+            class="absolute top-1/2 right-72 z-50 -translate-y-1/2 scale-95"
+          />
+          <Intro />
+        </div>
+      </SwiperSlide>
+      <SwiperSlide
+        class="relative overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat lg:max-w-4xl"
+        ><div class="bg-linear h-72">
+          <Gift
+            class="absolute top-1/2 right-72 z-50 -translate-y-1/2 scale-95"
+          />
+          <Intro />
+        </div>
+      </SwiperSlide>
+      <SwiperSlide
+        class="relative w-full overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat lg:max-w-4xl"
+        ><div class="bg-linear h-[18rem]">
+          <Gift
+            class="absolute top-1/2 right-72 z-50 -translate-y-1/2 scale-95"
+          />
+          <Intro />
+        </div>
+      </SwiperSlide>
+      <SwiperSlide
+        class="relative w-full overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat lg:max-w-4xl"
+        ><div class="bg-linear h-[18rem]">
+          <!-- <Gift
               class="absolute z-50 top-1/2 scale-95 -translate-y-1/2 right-72"
             /> -->
-            <Intro />
-          </div>
-        </SwiperSlide>
-      </Swiper>
-    </div>
+          <Intro />
+        </div>
+      </SwiperSlide>
+    </Swiper>
   </main>
   <!-- categories -->
-  <div class="container mx-auto pt-16">
-    <Categories />
+  <div class="container mx-auto pt-11">
+    <h2 class="text-xl font-semibold">Telusuri Kategori</h2>
+    <div
+      class="category-scroll mt-5 flex w-full items-center gap-x-3 overflow-x-scroll overscroll-x-auto pb-2"
+    >
+      <div
+        class="categories flex min-w-max items-center justify-center gap-1.5 rounded-lg border bg-soft-indidog py-2.5 px-5"
+      >
+        <i class="bx bx-search text-xl leading-none"></i>
+
+        <span class="text-sm font-normal">Semua</span>
+      </div>
+      <Categories
+        v-for="cate in products.category"
+        :key="cate.id"
+        :categories="cate.name"
+      />
+    </div>
   </div>
   <!-- card -->
-  <div class="relative container mx-auto pt-8 pb-16">
-    <Card
-      v-for="card in products.product"
-      :key="card.id"
-      :title="card.name"
-      :img="card.image_url"
-      :description="card.description"
-      :price="card.price"
-      :location="card.location"
-      :status="card.status"
-      :category="card.Categories"
-      :imgName="card.image_name"
-    />
+  <div class="container relative mx-auto pt-8 pb-16">
+    <div class="flex flex-wrap items-center gap-4">
+      <Card
+        v-for="card in products.product"
+        :key="card.id"
+        :title="card.name"
+        :img="card.image_url"
+        :description="card.description"
+        :price="card.price"
+        :location="card.location"
+        :status="card.status"
+        :category="card.Categories"
+        :imgName="card.image_name"
+      />
+    </div>
     <div class="absolute bottom-6 right-1/2 translate-x-1/2">
       <button
+        @click="loadMore()"
         type="button"
-        class="text-white bg-indidog hover:opacity-95 focus:ring-4 focus:outline-none focus:ring-indidog font-medium rounded-lg text-sm px-4 py-2.5 shadow-lg shadow-indidog/50 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        class="inline-flex items-center rounded-lg bg-indidog px-4 py-2.5 text-center text-sm font-medium text-white shadow-lg shadow-indidog/50 hover:opacity-95 focus:outline-none focus:ring-4 focus:ring-indidog dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
-        <i class="text-lg mr-2 -ml-1 leading-none bx bx-plus"></i>
-        Jual
+        <i class="bx bx-plus mr-2 -ml-1 text-lg leading-none"></i>
+        Load More
       </button>
     </div>
   </div>

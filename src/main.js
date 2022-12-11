@@ -1,9 +1,8 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-
+import "tw-elements";
 import "./assets/main.css";
-import "flowbite";
 
 const app = createApp(App);
 

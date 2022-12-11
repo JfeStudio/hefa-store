@@ -1,10 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
+// import "flowbite";
 // import HomeView from "../views/HomeView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      //   path: "/",
+      //   name: "home",
+      //   component: () => import("../views/HomeView.vue"),
+      //   component: HomeView,
       path: "/",
       component: () => import("../layouts/AppLayout.vue"),
       children: [
@@ -21,17 +26,17 @@ const router = createRouter({
         },
       ],
     },
-    {
-      path: "/",
-      component: () => import("../layouts/FullLayout.vue"),
-      children: [
-        {
-          path: "/services",
-          name: "Services",
-          component: () => import("../views/Services.vue"),
-        },
-      ],
-    },
+    // {
+    //   path: "/",
+    //   component: () => import("../layouts/FullLayout.vue"),
+    //   children: [
+    //     {
+    //       path: "/services",
+    //       name: "Services",
+    //       component: () => import("../views/Services.vue"),
+    //     },
+    //   ],
+    // },
     // {
     //   path: "/services",
     //   name: "Services",

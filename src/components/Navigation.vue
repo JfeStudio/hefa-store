@@ -1,238 +1,439 @@
 <template>
-  <nav
-    class="bg-slate-50 px-2 sm:px-4 md:py-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b shadow-sm border-gray-200 dark:border-gray-600"
-  >
-    <div class="container flex flex-wrap items-center justify-between mx-auto">
-      <RouterLink to="/" class="flex items-center">
-        <i class="text-4xl text-indidog bx bx-cube-alt"></i>
-        <!-- <span
-          class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
-          >Requiem</span
-        > -->
-      </RouterLink>
-      <div class="flex md:order-2">
+  <div class="fixed z-[999] w-full bg-slate-50 shadow-sm">
+    <nav
+      class="navbar navbar-expand-lg container navbar-light mx-auto flex flex-wrap items-center justify-between py-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"
+    >
+      <div class="flex w-full flex-wrap items-center justify-between">
         <button
+          class="navbar-toggler border-0 bg-transparent py-2 px-2.5 text-gray-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0"
           type="button"
-          class="text-white bg-indidog hover:opacity-95 focus:ring-4 focus:outline-none focus:ring-indidog font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            class="mr-2 -ml-1 w-5 h-5"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.33301 14.1667L12.4997 10L8.33301 5.83337"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M12.5 10H2.5"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M12.5 2.5H15.8333C16.2754 2.5 16.6993 2.67559 17.0118 2.98816C17.3244 3.30072 17.5 3.72464 17.5 4.16667V15.8333C17.5 16.2754 17.3244 16.6993 17.0118 17.0118C16.6993 17.3244 16.2754 17.5 15.8333 17.5H12.5"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-
-          Masuk
-        </button>
-        <button
-          data-collapse-toggle="navbar-sticky"
-          type="button"
-          class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-sticky"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
           aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <span class="sr-only">Open main menu</span>
           <svg
-            class="w-6 h-6"
             aria-hidden="true"
-            fill="currentColor"
-            viewBox="0 0 20 20"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="bars"
+            class="w-6"
+            role="img"
             xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
           >
             <path
-              fill-rule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-              clip-rule="evenodd"
+              fill="currentColor"
+              d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
             ></path>
           </svg>
         </button>
-      </div>
-      <div
-        class="items-center justify-between hidden w-full md:flex md:w-2/3 md:order-1"
-        id="navbar-sticky"
-      >
-        <form class="w-3/4">
-          <div class="flex">
-            <label
-              for="search-dropdown"
-              class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-              >Your Email</label
-            >
-            <button
-              id="dropdown-button"
-              data-dropdown-toggle="dropdown"
-              class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
-              type="button"
-            >
-              All categories
-              <svg
-                aria-hidden="true"
-                class="w-4 h-4 ml-1"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
-            <div
-              id="dropdown"
-              class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700"
-              data-popper-reference-hidden=""
-              data-popper-escaped=""
-              data-popper-placement="top"
-              style="
-                position: absolute;
-                inset: auto auto 0px 0px;
-                margin: 0px;
-                transform: translate3d(897px, 5637px, 0px);
-              "
-            >
-              <ul
-                class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdown-button"
-              >
-                <li>
-                  <button
-                    type="button"
-                    class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Mockups
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Templates
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Design
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Logos
-                  </button>
-                </li>
-              </ul>
-            </div>
-            <div class="relative w-full">
-              <input
-                type="search"
-                id="search-dropdown"
-                class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-indidog focus:border-indidog dark:bg-gray-700 dark:border-l-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                placeholder="Cari di sini..."
-                required
-              />
-              <button
-                type="submit"
-                class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-indidog rounded-r-lg border border-indidog hover:opacity-90 focus:ring-4 focus:outline-none focus:ring-indidog dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        <div
+          class="navbar-collapse collapse flex-grow items-center"
+          id="navbarSupportedContent"
+        >
+          <a
+            class="mt-2 mr-1 flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 lg:mt-0"
+            href="#"
+          >
+            <img
+              src="/images/logo.png"
+              style="height: 30px"
+              alt=""
+              loading="lazy"
+            />
+          </a>
+          <!-- Left links -->
+          <ul class="list-style-none navbar-nav flex flex-col pl-0">
+            <div class="flex items-center lg:hidden">
+              <a
+                class="mr-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"
+                href="#"
               >
                 <svg
                   aria-hidden="true"
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
+                  focusable="false"
+                  data-prefix="fas"
+                  data-icon="shopping-cart"
+                  class="w-4"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 576 512"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"
+                  ></path>
+                </svg>
+              </a>
+              <div class="dropdown relative">
+                <a
+                  class="hidden-arrow dropdown-toggle mr-4 flex items-center text-gray-500 hover:text-gray-700 focus:text-gray-700"
+                  href="#"
+                  id="dropdownMenuButton1"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    data-prefix="fas"
+                    data-icon="bell"
+                    class="w-4"
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z"
+                    ></path>
+                  </svg>
+                  <span
+                    class="absolute -mt-2.5 ml-2 rounded-full bg-red-700 py-0 px-1.5 text-xs text-white"
+                    >1</span
+                  >
+                </a>
+                <ul
+                  class="dropdown-menu absolute left-auto right-0 z-50 float-left m-0 mt-1 hidden min-w-max list-none rounded-lg border-none bg-white bg-clip-padding py-2 text-left text-base shadow-lg"
+                  aria-labelledby="dropdownMenuButton1"
+                >
+                  <li>
+                    <a
+                      class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                      href="#"
+                      >Action</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                      href="#"
+                      >Another action</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                      href="#"
+                      >Something else here</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="dropdown relative">
+                <a
+                  class="hidden-arrow dropdown-toggle flex items-center"
+                  href="#"
+                  id="dropdownMenuButton2"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                    class="rounded-full"
+                    style="height: 25px; width: 25px"
+                    alt=""
+                    loading="lazy"
+                  />
+                </a>
+                <ul
+                  class="dropdown-menu absolute left-auto right-0 z-50 float-left m-0 mt-1 hidden min-w-max list-none rounded-lg border-none bg-white bg-clip-padding py-2 text-left text-base shadow-lg"
+                  aria-labelledby="dropdownMenuButton2"
+                >
+                  <li>
+                    <a
+                      class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                      href="#"
+                      >Action</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                      href="#"
+                      >Another action</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                      href="#"
+                      >Something else here</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </ul>
+          <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+        <!-- Right elements -->
+        <div class="relative flex items-center lg:w-11/12">
+          <!-- Icon -->
+          <div
+            class="mr-auto w-full overflow-hidden rounded-lg border border-solid border-gray-300 lg:w-2/5"
+          >
+            <div
+              class="input-group relative flex w-full flex-wrap items-stretch"
+            >
+              <input
+                type="search"
+                class="form-control relative m-0 block w-full min-w-0 flex-auto bg-white bg-clip-padding px-3 py-2 text-xs font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
+                placeholder="Cari di sini.."
+                aria-label="Search"
+                aria-describedby="button-addon2"
+              />
+              <span
+                class="input-group-text flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-gray-700"
+                id="basic-addon2"
+              >
+                <svg
+                  width="18"
+                  height="18"
                   viewBox="0 0 24 24"
+                  fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
+                    d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                    stroke="#8A8A8A"
+                    stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
+                  />
+                  <path
+                    d="M21.0004 21L16.6504 16.65"
+                    stroke="#8A8A8A"
                     stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  ></path>
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
                 </svg>
-                <span class="sr-only">Search</span>
-              </button>
+              </span>
             </div>
           </div>
-        </form>
+          <!-- user -->
+          <div class="hidden items-center lg:flex">
+            <a
+              class="mr-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"
+              href="#"
+            >
+              <svg
+                width="19"
+                height="19"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 18H21"
+                  stroke="#151515"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M3 18H3.01"
+                  stroke="#151515"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8 12H21"
+                  stroke="#151515"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M3 12H3.01"
+                  stroke="#151515"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8 6H21"
+                  stroke="#151515"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M3 6H3.01"
+                  stroke="#151515"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <div class="dropdown relative">
+              <a
+                class="hidden-arrow dropdown-toggle mr-4 flex items-center text-gray-500 hover:text-gray-700 focus:text-gray-700"
+                href="#"
+                id="dropdownMenuButton1"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <svg
+                  width="19"
+                  height="19"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z"
+                    stroke="#151515"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21"
+                    stroke="#151515"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <span
+                  class="absolute -mt-2.5 ml-2 rounded-full bg-red-700 py-0 px-1.5 text-[.6rem] text-white"
+                  >1</span
+                >
+              </a>
+              <ul
+                class="dropdown-menu absolute left-auto right-0 z-50 float-left m-0 mt-1 hidden min-w-max list-none rounded-lg border-none bg-white bg-clip-padding py-2 text-left text-base shadow-lg"
+                aria-labelledby="dropdownMenuButton1"
+              >
+                <li>
+                  <a
+                    class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Action</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Another action</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Something else here</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown relative">
+              <a
+                class="hidden-arrow dropdown-toggle flex items-center"
+                href="#"
+                id="dropdownMenuButton2"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                  class="rounded-full"
+                  style="height: 25px; width: 25px"
+                  alt=""
+                  loading="lazy"
+                />
+              </a>
+              <ul
+                class="dropdown-menu absolute left-auto right-0 z-50 float-left m-0 mt-1 hidden min-w-max list-none rounded-lg border-none bg-white bg-clip-padding py-2 text-left text-base shadow-lg"
+                aria-labelledby="dropdownMenuButton2"
+              >
+                <li>
+                  <a
+                    class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Action</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Another action</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                    href="#"
+                    >Something else here</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Right elements -->
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 <script>
 import { RouterLink } from "vue-router";
-export default {
-  name: "navigation",
+// import "flowbite";
 
-  data() {
-    return {
-      scrolledNav: null,
-      mobile: null,
-      mobileNav: null,
-      windowWidth: null,
-    };
-  },
-  created() {
-    window.addEventListener("resize", this.checkScreen);
-    this.checkScreen();
-  },
-  mounted() {
-    window.addEventListener("scroll", this.updateScroll);
-    // this.updateScroll();
-  },
-  methods: {
-    toggleMobileNav() {
-      this.mobileNav = !this.mobileNav;
-    },
-    updateScroll() {
-      const scrollPosition = window.scrollY;
-      if (scrollPosition <= 50) {
-        this.scrolledNav = false;
-        return;
-      }
-      this.scrolledNav = true;
-    },
-    checkScreen() {
-      this.windowWidth = window.innerWidth;
-      if (this.windowWidth <= 750) {
-        this.mobile = true;
-        return;
-      }
-      this.mobile = false;
-      this.mobileNav = false;
-    },
-  },
-};
+// export default {
+//   name: "navigation",
+
+//   data() {
+//     return {
+//       scrolledNav: null,
+//       mobile: null,
+//       mobileNav: null,
+//       windowWidth: null,
+//     };
+//   },
+//   created() {
+//     window.addEventListener("resize", this.checkScreen);
+//     this.checkScreen();
+//   },
+//   mounted() {
+//     window.addEventListener("scroll", this.updateScroll);
+//     // this.updateScroll();
+//   },
+//   methods: {
+//     toggleMobileNav() {
+//       this.mobileNav = !this.mobileNav;
+//     },
+//     updateScroll() {
+//       const scrollPosition = window.scrollY;
+//       if (scrollPosition <= 50) {
+//         this.scrolledNav = false;
+//         return;
+//       }
+//       this.scrolledNav = true;
+//     },
+//     checkScreen() {
+//       this.windowWidth = window.innerWidth;
+//       if (this.windowWidth <= 750) {
+//         this.mobile = true;
+//         return;
+//       }
+//       this.mobile = false;
+//       this.mobileNav = false;
+//     },
+//   },
+// };
 </script>
 <style lang=""></style>
