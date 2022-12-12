@@ -1,7 +1,7 @@
 <template>
   <div class="fixed z-[999] w-full bg-slate-50 shadow-sm">
     <nav
-      class="navbar navbar-expand-lg container navbar-light mx-auto flex flex-wrap items-center justify-between py-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"
+      class="navbar navbar-expand-lg container navbar-light mx-auto flex flex-wrap items-center justify-between py-3 text-gray-500 hover:text-gray-700 focus:text-gray-700"
     >
       <div class="flex w-full flex-wrap items-center justify-between">
         <button
@@ -30,12 +30,12 @@
           </svg>
         </button>
         <div
-          class="navbar-collapse collapse flex-grow items-center"
+          class="navbar-collapse collapse my-3 flex flex-grow items-center gap-x-3"
           id="navbarSupportedContent"
         >
-          <a
-            class="mt-2 mr-1 flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 lg:mt-0"
-            href="#"
+          <RouterLink
+            class="mr-1 flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 lg:mt-0"
+            to="/"
           >
             <img
               src="/images/logo.png"
@@ -43,7 +43,7 @@
               alt=""
               loading="lazy"
             />
-          </a>
+          </RouterLink>
           <!-- Left links -->
           <ul class="list-style-none navbar-nav flex flex-col pl-0">
             <div class="flex items-center lg:hidden">
@@ -173,7 +173,7 @@
         </div>
         <!-- Collapsible wrapper -->
         <!-- Right elements -->
-        <div class="relative flex items-center lg:w-11/12">
+        <div class="relative flex w-3/4 items-center lg:w-11/12">
           <!-- Icon -->
           <div
             class="mr-auto w-full overflow-hidden rounded-lg border border-solid border-gray-300 lg:w-2/5"

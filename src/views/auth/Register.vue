@@ -1,13 +1,13 @@
 <template lang="">
-  <section class="gradient-form h-screen bg-gray-200 md:h-screen">
+  <section class="gradient-form bg-gray-200">
     <div class="container mx-auto">
       <div
-        class="lg:g-6 flex h-screen flex-wrap items-center justify-center text-gray-800"
+        class="flex h-screen flex-wrap items-center justify-center text-gray-800 lg:h-auto"
       >
-        <div class="w-full md:w-3/4 lg:w-11/12">
+        <div class="w-full md:w-3/4 lg:w-11/12 lg:scale-90">
           <div class="block overflow-hidden rounded-lg bg-white shadow-lg">
-            <div class="lg:flex">
-              <div class="basis:w-6/12 px-6 py-8 md:px-6 md:py-14 lg:basis-1/2">
+            <div class="lg:flex lg:h-screen">
+              <div class="basis:w-6/12 px-6 py-8 md:px-6 md:py-9 lg:basis-1/2">
                 <div class="md:mx-6">
                   <div class="text-center">
                     <img
@@ -19,7 +19,7 @@
                       Hefa Store
                     </h4>
                   </div>
-                  <form>
+                  <form @submit.prevent="doRegister">
                     <h3
                       class="mb-4 text-xl font-bold text-slate-800 lg:text-lg"
                     >
@@ -36,6 +36,7 @@
                         class="form-control m-0 block w-full rounded-xl border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-base font-normal text-gray-700 transition ease-in-out placeholder:text-sm focus:border-indidog focus:bg-white focus:text-gray-700 focus:outline-none lg:placeholder:text-xs"
                         id="form-username"
                         placeholder="Nama Lengkap"
+                        v-model="formDaftar.full_name"
                       />
                     </div>
                     <div class="mb-4">
@@ -49,6 +50,7 @@
                         class="form-control m-0 block w-full rounded-xl border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-base font-normal text-gray-700 transition ease-in-out placeholder:text-sm focus:border-indidog focus:bg-white focus:text-gray-700 focus:outline-none lg:placeholder:text-xs"
                         id="form-email"
                         placeholder="Hefa_store@gmail.com"
+                        v-model="formDaftar.email"
                       />
                     </div>
                     <div class="mb-4">
@@ -62,13 +64,13 @@
                         class="form-control m-0 block w-full rounded-xl border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-base font-normal text-gray-700 transition ease-in-out placeholder:text-sm focus:border-indidog focus:bg-white focus:text-gray-700 focus:outline-none lg:placeholder:text-xs"
                         id="form-password"
                         placeholder="Min 8 character"
+                        v-model="formDaftar.password"
                       />
                     </div>
                     <div class="mb-3 pt-1 pb-1 text-center lg:mb-2">
                       <button
-                        @click="router.push('/')"
+                        type="submit"
                         class="mb-3 inline-block w-full rounded-xl bg-indidog px-6 py-3 text-sm font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:opacity-95 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg lg:mb-4"
-                        type="button"
                       >
                         Daftar
                       </button>
@@ -93,8 +95,14 @@
                   </form>
                 </div>
               </div>
-              <div class="hidden lg:order-first lg:flex lg:basis-1/2">
-                <img src="/images/auth-hero.png" alt="" />
+              <div class="relative hidden lg:order-first lg:flex lg:basis-1/2">
+                <div class="gradient-auth absolute inset-0"></div>
+                <h3
+                  class="absolute left-11 top-1/2 w-32 -translate-y-1/2 text-3xl font-extrabold leading-none text-white"
+                >
+                  Second Hand
+                </h3>
+                <img class="w-full" src="/images/auth-hero.png" alt="" />
               </div>
             </div>
           </div>
@@ -105,6 +113,22 @@
 </template>
 <script setup>
 import { RouterLink, useRouter } from "vue-router";
+import { reactive } from "vue";
+import { useAuthStore } from "../../stores";
+// import {} from '../'
 const router = useRouter();
+const formDaftar = reactive({
+  full_name: "",
+  email: "",
+  password: "",
+});
+const doRegister = () => {
+  const data = {
+    full_name: formDaftar.full_name,
+    email: formDaftar.email,
+    password: formDaftar.password,
+  };
+  useAuthStore().register(data);
+};
 </script>
 <style lang=""></style>

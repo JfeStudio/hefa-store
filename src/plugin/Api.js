@@ -12,4 +12,4 @@ const getCategory = async () =>
   //   await instance.get("/buyer/product?page=15&per_page=10");
   await instance.get("/seller/category");
 
-export { getProduct, getCategory };
+export { getProduct, getCategory, instance };

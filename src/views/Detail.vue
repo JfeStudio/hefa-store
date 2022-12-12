@@ -1,6 +1,6 @@
 <template lang="">
   <div class="container mx-auto pt-24">
-    <div class="flex flex-wrap justify-center items-start gap-x-5">
+    <div class="flex flex-wrap items-start justify-center gap-x-5">
       <!-- swiper -->
       <swiper
         :cssMode="true"
@@ -9,7 +9,7 @@
         :mousewheel="true"
         :keyboard="true"
         :modules="modules"
-        class="mySwiper m-0 basis-1/2"
+        class="basis-1/2"
       >
         <SwiperSlide>
           <img src="/images/detail-1.png" alt="" />
@@ -30,20 +30,20 @@
         <!-- description -->
       </swiper>
       <!-- detail keterangan -->
-      <div class="basis-[25%] flex flex-col gap-y-4">
-        <div class="pt-3 pb-4 px-4 shadow border border-slate-100 rounded-2xl">
-          <h1 class="text-base text-slate-800 font-medium">Jam Tangan Casio</h1>
-          <p class="text-sm text-gray-400 mt-1 mb-2">Aksesoris</p>
+      <div class="flex basis-[25%] flex-col gap-y-4">
+        <div class="rounded-2xl border border-slate-100 px-4 pt-3 pb-4 shadow">
+          <h1 class="text-base font-medium text-slate-800">Jam Tangan Casio</h1>
+          <p class="mt-1 mb-2 text-sm text-gray-400">Aksesoris</p>
           <span class="text-slate-800">Rp : 250.000</span>
-          <div class="flex flex-col mt-4 gap-y-2">
+          <div class="mt-4 flex flex-col gap-y-2">
             <button
-              class="py-2 text-[.825rem] text-center block font-normal border border-indidog bg-indidog text-slate-50 rounded-xl"
+              class="block rounded-xl border border-indidog bg-indidog py-2 text-center text-[.825rem] font-normal text-slate-50"
               type="submit"
             >
               Terbitkan
             </button>
             <button
-              class="py-2 text-[.825rem] text-center block font-normal border border-indidog text-slate-800 rounded-xl"
+              class="block rounded-xl border border-indidog py-2 text-center text-[.825rem] font-normal text-slate-800"
               type="submit"
             >
               Edit
@@ -51,23 +51,23 @@
           </div>
         </div>
         <div
-          class="flex items-center justify-start gap-x-3 shadow border border-slate-100 p-3 rounded-2xl"
+          class="flex items-center justify-start gap-x-3 rounded-2xl border border-slate-100 p-3 shadow"
         >
           <img src="/images/people.png" alt="" />
           <div>
             <h4 class="text-sm font-medium">John BBC</h4>
-            <p class="text-gray-400 text-xs">Semarang</p>
+            <p class="text-xs text-gray-400">Semarang</p>
           </div>
         </div>
       </div>
     </div>
     <!-- description -->
     <div
-      class="ml-32 my-7 w-1/2 p-4 rounded-2xl shadow border border-slate-100"
+      class="my-7 ml-32 w-1/2 rounded-2xl border border-slate-100 p-4 shadow"
     >
-      <h4 class="font-medium text-base">Deskripsi</h4>
+      <h4 class="text-base font-medium">Deskripsi</h4>
       <p
-        class="my-3 text-sm font-light text-gray-500 md:text-sm dark:text-gray-400"
+        class="my-3 text-sm font-light text-gray-500 dark:text-gray-400 md:text-sm"
       >
         Deliver great service experiences fast - without the complexity of
         traditional ITSM solutions.Accelerate critical development work and
