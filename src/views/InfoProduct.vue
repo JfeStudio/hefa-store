@@ -2,7 +2,7 @@
   <div class="container mx-auto py-24">
     <div class="relative">
       <RouterLink
-        :to="{ name: 'Daftar Semua Product' }"
+        :to="{ name: 'Daftar Produk Seller' }"
         class="absolute left-64"
       >
         <i

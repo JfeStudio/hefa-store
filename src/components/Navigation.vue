@@ -220,7 +220,8 @@
           </div>
           <!-- user -->
           <div v-if="store.getToken" class="hidden items-center border lg:flex">
-            <a
+            <RouterLink
+              :to="{ name: 'Daftar Produk Seller' }"
               class="mr-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"
               href="#"
             >
@@ -274,7 +275,7 @@
                   stroke-linejoin="round"
                 />
               </svg>
-            </a>
+            </RouterLink>
             <div class="dropdown relative">
               <a
                 class="hidden-arrow dropdown-toggle mr-4 flex items-center text-gray-500 hover:text-gray-700 focus:text-gray-700"

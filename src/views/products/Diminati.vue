@@ -1,5 +1,5 @@
 <template lang="">
-  <div>wadwdwl</div>
+  <div class="mt-24">Diminati</div>
 </template>
 <script>
 export default {};

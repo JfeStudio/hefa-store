@@ -1,5 +1,5 @@
 <template lang="">
-  <div>awkdkawkd</div>
+  <div class="mt-24">Terjual</div>
 </template>
 <script>
 export default {};

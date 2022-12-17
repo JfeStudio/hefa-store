@@ -32,12 +32,23 @@ const router = createRouter({
         {
           path: "/daftar-semua-produk",
           component: () => import("../layouts/AppSeller.vue"),
-          //   name: "Daftar Produk Seller",
+          //   name: "Daftar Semua Produk",
           children: [
             {
               path: "",
-              name: "Daftar Semua Product",
+              //   name: "Daftar Semua Product",
+              name: "Daftar Produk Seller",
               component: () => import("../views/products/Index.vue"),
+            },
+            {
+              path: "/daftar-diminati",
+              name: "Daftar Diminati",
+              component: () => import("../views/products/Diminati.vue"),
+            },
+            {
+              path: "/daftar-terjual",
+              name: "Daftar Terjual",
+              component: () => import("../views/products/Terjual.vue"),
             },
           ],
         },

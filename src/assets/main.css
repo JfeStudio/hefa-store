@@ -74,3 +74,8 @@
 .swiper {
   margin: 0 !important;
 }
+
+.nav-category.router-link-active.active span,
+.nav-category.router-link-active.active i {
+  @apply text-indidog;
+}
