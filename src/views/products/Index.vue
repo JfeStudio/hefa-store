@@ -90,9 +90,9 @@
 </template>
 <script setup>
 import { reactive, onMounted } from "vue";
-import { useAuthStore } from "../stores";
-import SellerCard from "../components/Card.vue";
-import { getSeller } from "../plugin/Api.js";
+import { useAuthStore } from "../../stores";
+import SellerCard from "../../components/Card.vue";
+import { getSeller } from "../../plugin/Api.js";
 
 const data = reactive({
   productSeller: [],

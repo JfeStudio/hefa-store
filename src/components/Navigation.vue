@@ -219,7 +219,7 @@
             </div>
           </div>
           <!-- user -->
-          <div class="hidden items-center lg:flex">
+          <div v-if="store.getToken" class="hidden items-center border lg:flex">
             <a
               class="mr-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"
               href="#"
@@ -375,14 +375,19 @@
                   >
                 </li>
                 <li>
-                  <a
+                  <button
                     class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
-                    href="#"
-                    >Something else here</a
+                    @click="setLogout"
+                    type="submit"
                   >
+                    Get out
+                  </button>
                 </li>
               </ul>
             </div>
+          </div>
+          <div v-else>
+            <RouterLink :to="{ name: 'Login' }"> Login </RouterLink>
           </div>
         </div>
         <!-- Right elements -->
@@ -394,7 +399,11 @@
 import { RouterLink } from "vue-router";
 import { TextSearch } from "../stores/products.js";
 import debounce from "../utils/debounce.js";
-
+import { useAuthStore } from "../stores";
+const store = useAuthStore();
+const setLogout = () => {
+  store.doLogout();
+};
 const delaySearch = debounce((e) => {
   TextSearch.value = e.target.value;
 }, 500);

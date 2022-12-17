@@ -19,7 +19,7 @@
                       Hefa Store
                     </h4>
                   </div>
-                  <form>
+                  <form @submit.prevent="onLogin">
                     <h3
                       class="mb-4 text-xl font-bold text-slate-800 lg:text-lg"
                     >
@@ -32,6 +32,7 @@
                         >Email</label
                       >
                       <input
+                        v-model="data.form.email"
                         type="email"
                         class="form-control m-0 block w-full rounded-xl border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-base font-normal text-gray-700 transition ease-in-out placeholder:text-sm focus:border-indidog focus:bg-white focus:text-gray-700 focus:outline-none lg:placeholder:text-xs"
                         id="form-email"
@@ -45,6 +46,7 @@
                         >Password</label
                       >
                       <input
+                        v-model="data.form.password"
                         type="password"
                         class="form-control m-0 block w-full rounded-xl border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-base font-normal text-gray-700 transition ease-in-out placeholder:text-sm focus:border-indidog focus:bg-white focus:text-gray-700 focus:outline-none lg:placeholder:text-xs"
                         id="form-password"
@@ -53,9 +55,8 @@
                     </div>
                     <div class="mb-3 pt-1 pb-1 text-center lg:mb-2">
                       <button
-                        @click="router.push('/')"
                         class="mb-3 inline-block w-full rounded-xl bg-indidog px-6 py-3 text-sm font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:opacity-95 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg lg:mb-4"
-                        type="button"
+                        type="submit"
                       >
                         Masuk
                       </button>
@@ -98,6 +99,22 @@
 </template>
 <script setup>
 import { RouterLink, useRouter } from "vue-router";
+import { useAuthStore } from "../../stores";
+import { reactive } from "vue";
 const router = useRouter();
+// const authStore = useAuthStore;
+const data = reactive({
+  form: {
+    email: "",
+    password: "",
+  },
+});
+const onLogin = async () => {
+  const getLogin = {
+    email: data.form.email,
+    password: data.form.password,
+  };
+  await useAuthStore().postUser(getLogin);
+};
 </script>
 <style lang=""></style>

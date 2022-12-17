@@ -5,9 +5,13 @@ import { instance } from "../plugin/Api";
 
 export const useAuthStore = defineStore("auth", {
   state: () => ({
-    userData: JSON.parse(localStorage.getItem("userData")) || {},
+    userData: JSON.parse(localStorage.getItem("userData")) || null,
   }),
-  getters: {},
+  getters: {
+    getToken() {
+      return this.userData?.access_token;
+    },
+  },
   actions: {
     async register(payload) {
       await instance
@@ -25,10 +29,30 @@ export const useAuthStore = defineStore("auth", {
               this.userData = res.data;
               router.push("/");
             });
+          router.push("/login");
         })
         .catch((err) => {
           console.log(err);
         });
+    },
+    // login
+    async postUser(getLogin) {
+      await instance
+        .post("/auth/login", getLogin)
+        .then((res) => {
+          localStorage.setItem("userData", JSON.stringify(res.data));
+          this.userData = res.data;
+          router.push("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    // get all product
+    doLogout() {
+      this.userData = null;
+      localStorage.removeItem("userData");
+      router.push("/");
     },
   },
 });

@@ -19,16 +19,32 @@ const router = createRouter({
           component: () => import("../views/HomeView.vue"),
           //   component: HomeView,
         },
+        // {
+        //   path: "/detail",
+        //   name: "Product",
+        //   component: () => import("../views/Detail.vue"),
+        // },
         {
-          path: "/detail",
+          path: "/detail/:id",
           name: "Detail Product",
           component: () => import("../views/Detail.vue"),
         },
         {
-          path: "/daftar-jual",
-          name: "Daftar Jual",
-          component: () => import("../views/DaftarJual.vue"),
+          path: "/daftar-semua-produk",
+          component: () => import("../layouts/AppSeller.vue"),
+          children: [
+            {
+              path: "",
+              name: "Daftar Semua Product",
+              component: () => import("../views/products/Index.vue"),
+            },
+          ],
         },
+        // {
+        //   path: "/daftar-jual",
+        //   name: "Daftar Jual",
+        //   component: () => import("../views/DaftarJual.vue"),
+        // },
       ],
     },
     // {

@@ -1,6 +1,6 @@
 <template lang="">
   <div class="rounded-md border border-slate-100 p-2 shadow">
-    <RouterLink to="#" class="relative">
+    <div class="relative">
       <img
         class="h-36 w-full rounded-md border border-slate-200 object-cover"
         :src="img"
@@ -10,7 +10,7 @@
         class="absolute top-1.5 right-1.5 rounded-md bg-amber-300 py-1 px-3 text-[.65rem] font-semibold uppercase text-slate-800"
         >{{ status }}</span
       >
-    </RouterLink>
+    </div>
     <div class="pt-2 pb-1">
       <h3
         class="card-title text-[.925rem] font-semibold capitalize text-slate-800"

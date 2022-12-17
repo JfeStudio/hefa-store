@@ -1,6 +1,7 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from "swiper";
+import { useRouter } from "vue-router";
 // import Gift from "../components/icon/Gift.vue";
 import Intro from "../components/Intro.vue";
 import Card from "../components/Card.vue";
@@ -12,6 +13,7 @@ import debounce from "../utils/debounce.js";
 
 // Import Swiper styles
 import "swiper/css";
+const router = useRouter();
 
 // import "swiper/css/pagination";
 
@@ -156,6 +158,7 @@ onMounted(() => {
     <div class="flex flex-wrap items-start justify-start gap-5">
       <Card
         v-for="card in products.product"
+        @click="router.push('/detail/' + card.id)"
         class="basis-[45%] md:basis-[30%] lg:basis-[18%]"
         :key="card.id"
         :title="card.name"

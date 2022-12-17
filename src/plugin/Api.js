@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useAuthStore } from "../stores";
 const instance = axios.create({
   baseURL: "https://market-final-project.herokuapp.com",
 });
@@ -12,4 +13,15 @@ const getCategory = async () =>
   //   await instance.get("/buyer/product?page=15&per_page=10");
   await instance.get("/seller/category");
 
-export { getProduct, getCategory, instance };
+//  Api seller product
+const getSeller = async () =>
+  await instance.get("/seller/product", {
+    headers: {
+      access_token: useAuthStore().getToken,
+    },
+  });
+//  get detail product home
+const getDetailProduct = async (idDetailItem) =>
+  await instance.get("/buyer/product" + idDetailItem);
+
+export { getProduct, getCategory, instance, getSeller, getDetailProduct };
