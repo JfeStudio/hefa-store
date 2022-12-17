@@ -32,6 +32,7 @@ const router = createRouter({
         {
           path: "/daftar-semua-produk",
           component: () => import("../layouts/AppSeller.vue"),
+          //   name: "Daftar Produk Seller",
           children: [
             {
               path: "",
@@ -39,6 +40,11 @@ const router = createRouter({
               component: () => import("../views/products/Index.vue"),
             },
           ],
+        },
+        {
+          path: "/info-product",
+          name: "Info Product",
+          component: () => import("../views/InfoProduct.vue"),
         },
         // {
         //   path: "/daftar-jual",

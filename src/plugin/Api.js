@@ -23,5 +23,14 @@ const getSeller = async () =>
 //  get detail product home
 const getDetailProduct = async (idDetailItem) =>
   await instance.get("/buyer/product" + idDetailItem);
+//  get product seller category
+const getSellerCategory = async () => await instance.get("/seller/category");
 
-export { getProduct, getCategory, instance, getSeller, getDetailProduct };
+export {
+  getProduct,
+  getCategory,
+  instance,
+  getSeller,
+  getDetailProduct,
+  getSellerCategory,
+};
