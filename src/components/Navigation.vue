@@ -219,7 +219,7 @@
             </div>
           </div>
           <!-- user -->
-          <div v-if="store.getToken" class="hidden items-center border lg:flex">
+          <div v-if="store.getToken" class="hidden items-center lg:flex">
             <RouterLink
               :to="{ name: 'Daftar Produk Seller' }"
               class="mr-4 text-gray-500 hover:text-gray-700 focus:text-gray-700"
@@ -377,19 +377,28 @@
                 </li>
                 <li>
                   <button
-                    class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                    class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-start text-sm font-normal text-gray-700 hover:bg-gray-100"
                     @click="setLogout"
                     type="submit"
                   >
-                    Get out
+                    Logout
                   </button>
                 </li>
               </ul>
             </div>
           </div>
-          <div v-else>
-            <RouterLink :to="{ name: 'Login' }"> Login </RouterLink>
-          </div>
+          <RouterLink
+            :to="{ name: 'Login' }"
+            v-else
+            class="flex justify-center space-x-2"
+          >
+            <button
+              type="button"
+              class="inline-block rounded bg-indidog px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:opacity-95 hover:shadow-lg focus:opacity-90 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-opacity-95 active:shadow-lg"
+            >
+              Login
+            </button>
+          </RouterLink>
         </div>
         <!-- Right elements -->
       </div>

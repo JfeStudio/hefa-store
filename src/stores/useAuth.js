@@ -6,6 +6,7 @@ import { instance } from "../plugin/Api";
 export const useAuthStore = defineStore("auth", {
   state: () => ({
     userData: JSON.parse(localStorage.getItem("userData")) || null,
+    product: "",
   }),
   getters: {
     getToken() {
@@ -48,6 +49,18 @@ export const useAuthStore = defineStore("auth", {
           console.log(err);
         });
     },
+    // post input
+    async postSellerProduct(tambah) {
+      await instance
+        .post("/seller/product", tambah)
+        .then(() => {
+          router.push("/daftar-semua-produk");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+
     // get all product
     doLogout() {
       this.userData = null;

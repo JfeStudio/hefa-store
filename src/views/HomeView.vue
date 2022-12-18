@@ -2,7 +2,6 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from "swiper";
 import { useRouter } from "vue-router";
-// import Gift from "../components/icon/Gift.vue";
 import Intro from "../components/Intro.vue";
 import Card from "../components/Card.vue";
 import Categories from "../components/Categories.vue";
@@ -88,36 +87,44 @@ onMounted(() => {
       <SwiperSlide
         class="w-full overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat md:max-w-2xl lg:max-w-4xl"
         ><div class="bg-linear h-[18rem]">
-          <!-- <Gift
-            class="absolute top-1/2 right-72 z-50 -translate-y-1/2 scale-95"
-          /> -->
+          <img
+            class="absolute top-1/2 right-72 z-50 w-32 -translate-y-1/2"
+            src="/images/gift-box.png"
+            alt=""
+          />
           <Intro />
         </div>
       </SwiperSlide>
       <SwiperSlide
         class="relative overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat md:max-w-2xl lg:max-w-4xl"
         ><div class="bg-linear h-72">
-          <!-- <Gift
-            class="absolute top-1/2 right-72 z-50 -translate-y-1/2 scale-95"
-          /> -->
+          <img
+            class="absolute top-1/2 right-72 z-50 w-32 -translate-y-1/2"
+            src="/images/gift-box.png"
+            alt=""
+          />
           <Intro />
         </div>
       </SwiperSlide>
       <SwiperSlide
         class="relative w-full overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat md:max-w-2xl lg:max-w-4xl"
         ><div class="bg-linear h-[18rem]">
-          <!-- <Gift
-            class="absolute top-1/2 right-72 z-50 -translate-y-1/2 scale-95"
-          /> -->
+          <img
+            class="absolute top-1/2 right-72 z-50 w-32 -translate-y-1/2"
+            src="/images/gift-box.png"
+            alt=""
+          />
           <Intro />
         </div>
       </SwiperSlide>
       <SwiperSlide
         class="relative w-full overflow-hidden rounded-3xl bg-hero-mosque bg-right bg-no-repeat md:max-w-2xl lg:max-w-4xl"
         ><div class="bg-linear h-[18rem]">
-          <!-- <Gift
-              class="absolute z-50 top-1/2 scale-95 -translate-y-1/2 right-72"
-            /> -->
+          <img
+            class="absolute top-1/2 right-72 z-50 w-32 -translate-y-1/2"
+            src="/images/gift-box.png"
+            alt=""
+          />
           <Intro />
         </div>
       </SwiperSlide>
