@@ -55,7 +55,11 @@ const getDetailProduct = async (idDetailItem) =>
   await instance.get("/buyer/product" + idDetailItem);
 //  get product seller category
 const getSellerCategory = async () => await instance.get("/seller/category");
+// get detail seller product
+// const getDetailSellerProduct = async (idDetailSeller) =>
+//   await instance.get("/seller/product" + idDetailSeller);
 
+// const deleteSellerProduct =
 export {
   getProduct,
   getCategory,
@@ -63,4 +67,5 @@ export {
   getSeller,
   getDetailProduct,
   getSellerCategory,
+  //   getDetailSellerProduct,
 };

@@ -79,3 +79,10 @@
 .nav-category.router-link-active.active i {
   @apply text-indidog;
 }
+.is-invalid {
+  @apply border border-red-700;
+}
+
+.is-invalid-feedback {
+  @apply text-red-600;
+}

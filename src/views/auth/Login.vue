@@ -19,7 +19,11 @@
                       Hefa Store
                     </h4>
                   </div>
-                  <form @submit.prevent="onLogin">
+                  <Form
+                    @submit="onLogin"
+                    :validation-schema="schema"
+                    v-slot="{ errors }"
+                  >
                     <h3
                       class="mb-4 text-xl font-bold text-slate-800 lg:text-lg"
                     >
@@ -31,13 +35,16 @@
                         class="form-label mb-2 inline-block text-base font-normal text-gray-800 lg:text-sm"
                         >Email</label
                       >
-                      <input
+                      <Field
+                        name="email"
+                        :class="{ 'is-invalid': errors.email }"
                         v-model="data.form.email"
                         type="email"
                         class="form-control m-0 block w-full rounded-xl border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-base font-normal text-gray-700 transition ease-in-out placeholder:text-sm focus:border-indidog focus:bg-white focus:text-gray-700 focus:outline-none lg:placeholder:text-xs"
                         id="form-email"
                         placeholder="Hefa_store@gmail.com"
                       />
+                      <ErrorMessage name="email" class="invalid-feedback" />
                     </div>
                     <div class="mb-4">
                       <label
@@ -45,13 +52,16 @@
                         class="form-label mb-2 inline-block text-gray-700 lg:text-sm"
                         >Password</label
                       >
-                      <input
+                      <Field
+                        name="password"
+                        :class="{ 'is-invalid': errors.password }"
                         v-model="data.form.password"
                         type="password"
                         class="form-control m-0 block w-full rounded-xl border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 text-base font-normal text-gray-700 transition ease-in-out placeholder:text-sm focus:border-indidog focus:bg-white focus:text-gray-700 focus:outline-none lg:placeholder:text-xs"
                         id="form-password"
                         placeholder="Min 8 character"
                       />
+                      <ErrorMessage name="password" class="invalid-feedback" />
                     </div>
                     <div class="mb-3 pt-1 pb-1 text-center lg:mb-2">
                       <button
@@ -78,7 +88,7 @@
                         >Daftar di sini</RouterLink
                       >
                     </div>
-                  </form>
+                  </Form>
                 </div>
               </div>
               <div class="relative hidden lg:order-first lg:flex lg:basis-1/2">
@@ -101,6 +111,14 @@
 import { RouterLink, useRouter } from "vue-router";
 import { useAuthStore } from "../../stores";
 import { reactive } from "vue";
+import * as yup from "yup";
+import { Form, Field, ErrorMessage } from "vee-validate";
+// error validation
+const schema = yup.object().shape({
+  email: yup.string().email("invalid email").required("Email salah"),
+  //   password: yup.string().required("password salah"),
+});
+
 const router = useRouter();
 // const authStore = useAuthStore;
 const data = reactive({

@@ -6,10 +6,16 @@
       class="mt-3 flex items-center justify-between rounded-2xl border border-slate-100 p-3 shadow"
     >
       <div class="flex items-center justify-start gap-x-3">
-        <img src="/images/people.png" alt="" />
+        <img
+          class="h-12 w-12 overflow-hidden rounded-md"
+          :src="data.userId.image_url ?? dummyAvatar"
+          alt=""
+        />
         <div>
-          <h4 class="text-sm font-medium">John BBC</h4>
-          <p class="text-xs text-gray-400">Semarang</p>
+          <h4 class="text-sm font-medium">{{ data.userId.full_name }}</h4>
+          <p class="text-xs text-gray-400">
+            {{ data.userId.city ?? "Isekai" }}
+          </p>
         </div>
       </div>
       <button
@@ -20,11 +26,13 @@
       </button>
     </div>
     <!-- main content -->
-    <div class="mt-5 flex items-start gap-x-7">
+    <div
+      class="mt-5 flex flex-wrap items-start justify-center gap-7 md:justify-start lg:flex-nowrap"
+    >
       <!-- category -->
-      <NavbarCategory class="basis-1/4" />
+      <NavbarCategory class="basis-full md:basis-2/5 lg:basis-1/4" />
       <!-- cols card categories -->
-      <div class="flex basis-full flex-wrap">
+      <div class="flex basis-full flex-wrap md:basis-1/2 lg:basis-full">
         <RouterView />
       </div>
     </div>
@@ -32,6 +40,23 @@
 </template>
 <script setup>
 import { RouterView } from "vue-router";
+import { reactive, onMounted } from "vue";
 import NavbarCategory from "../components/NavCategory.vue";
+import { instance } from "../plugin/Api.js";
+
+const data = reactive({
+  //   productSeller: [],
+  userId: {},
+});
+const authUser = async () => {
+  await instance.get("/auth/user").then((res) => {
+    data.userId = res.data;
+    console.log(data);
+  });
+};
+const dummyAvatar = `https://ui-avatars.com/api/?name=${data.userId.image_url}`;
+onMounted(() => {
+  authUser();
+});
 </script>
 <style lang=""></style>

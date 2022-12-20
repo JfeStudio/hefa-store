@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="flex flex-wrap items-stretch justify-start gap-5">
+  <div class="flex flex-wrap items-stretch justify-start gap-5 lg:basis-full">
     <RouterLink
       :to="{ name: 'Info Product' }"
       class="flex basis-[45%] rounded-md border-2 border-dashed border-gray-300 p-12 md:basis-[30%] lg:basis-1/5"
@@ -11,7 +11,7 @@
     </RouterLink>
     <Card
       v-for="card in data.productSeller"
-      @click="router.push('/detail/' + card.id)"
+      @click="router.push('/detail-seller-product/' + card.id)"
       class="basis-[45%] md:basis-[30%] lg:basis-1/5"
       :key="card.id"
       :title="card.name"
@@ -35,6 +35,9 @@ import { useAuthStore } from "../../stores";
 import SellerCard from "../../components/Card.vue";
 import { getSeller } from "../../plugin/Api.js";
 import Card from "../../components/Card.vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const data = reactive({
   productSeller: [],

@@ -9,14 +9,10 @@
         :mousewheel="true"
         :keyboard="true"
         :modules="modules"
-        class="basis-1/5 border"
+        class="basis-1/2"
       >
         <SwiperSlide>
-          <img
-            class="h-52 w-full bg-cover"
-            :src="detail.product.image_url"
-            alt=""
-          />
+          <img :src="detail.product.image_url" alt="" />
         </SwiperSlide>
 
         <!-- <div class="swiper-button-prev" slot="button-prev"></div>
@@ -50,10 +46,11 @@
               Terbitkan
             </button>
             <button
+              @click="deleteSellerProduct(id)"
               class="block rounded-xl border border-indidog py-2 text-center text-[.825rem] font-normal text-slate-800"
               type="submit"
             >
-              Edit
+              Delete
             </button>
           </div>
         </div>
@@ -93,7 +90,7 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { reactive, onMounted } from "vue";
-import { instance } from "../plugin/Api.js";
+import { instance } from "../../plugin/Api.js";
 import { useRoute, useRouter } from "vue-router";
 // Import Swiper styles
 import "swiper/css";
@@ -107,15 +104,22 @@ const detail = reactive({
   product: [],
 });
 const idDetailItem = useRoute().params.id;
-const getDetailItem = async () => {
-  await instance.get("/buyer/product/" + idDetailItem).then((res) => {
+const getDetailSellerProduct = async () => {
+  await instance.get("/seller/product/" + idDetailItem).then((res) => {
     detail.product = res.data;
+    console.log(res.data);
+  });
+};
+// const
+const deleteSellerProduct = async () => {
+  await instance.delete("/seller/product/" + idDetailItem).then(() => {
+    router.push("/daftar-semua-produk");
     console.log(res.data);
   });
 };
 
 onMounted(() => {
-  getDetailItem();
+  getDetailSellerProduct();
 });
 
 // import "./style.css";
