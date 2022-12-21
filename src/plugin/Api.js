@@ -58,7 +58,7 @@ const getSellerCategory = async () => await instance.get("/seller/category");
 // get detail seller product
 // const getDetailSellerProduct = async (idDetailSeller) =>
 //   await instance.get("/seller/product" + idDetailSeller);
-
+const getEdit = async () => await instance.put("/auth/user");
 // const deleteSellerProduct =
 export {
   getProduct,
@@ -67,5 +67,6 @@ export {
   getSeller,
   getDetailProduct,
   getSellerCategory,
+  getEdit,
   //   getDetailSellerProduct,
 };

@@ -18,12 +18,12 @@
           </p>
         </div>
       </div>
-      <button
-        type="button"
+      <RouterLink
+        :to="{ name: 'Edit Profile' }"
         class="inline-block rounded-md border-2 border-slate-500 px-3 py-1.5 text-xs font-medium leading-tight text-slate-500 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
       >
         Edit
-      </button>
+      </RouterLink>
     </div>
     <!-- main content -->
     <div

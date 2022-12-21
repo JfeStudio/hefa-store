@@ -1,7 +1,7 @@
 <template lang="">
   <div class="flex flex-wrap items-stretch justify-start gap-5 lg:basis-full">
     <RouterLink
-      :to="{ name: 'Info Product' }"
+      :to="{ name: 'Tambah Product' }"
       class="flex basis-[45%] rounded-md border-2 border-dashed border-gray-300 p-12 md:basis-[30%] lg:basis-1/5"
     >
       <div class="m-auto text-center">

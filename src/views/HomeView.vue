@@ -8,6 +8,7 @@ import Categories from "../components/Categories.vue";
 import { reactive, onMounted, watchEffect } from "vue";
 import { getProduct, getCategory } from "../plugin/Api";
 import { TextSearch } from "../stores/products.js";
+import { instance } from "../plugin/Api.js";
 import debounce from "../utils/debounce.js";
 
 // Import Swiper styles
@@ -25,6 +26,7 @@ const products = reactive({
   category: [],
   perPage: 30,
   idCategory: 0,
+  userId: {},
 });
 
 const onGetProduct = async () => {

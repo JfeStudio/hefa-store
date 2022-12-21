@@ -57,17 +57,18 @@ const router = createRouter({
           ],
         },
         {
-          path: "/info-product",
-          name: "Info Product",
-          component: () => import("../views/InfoProduct.vue"),
+          path: "/tambah-product",
+          name: "Tambah Product",
+          component: () => import("../views/products/TambahProduct.vue"),
         },
-        // {
-        //   path: "/daftar-jual",
-        //   name: "Daftar Jual",
-        //   component: () => import("../views/DaftarJual.vue"),
-        // },
+        {
+          path: "/edit-profile",
+          name: "Edit Profile",
+          component: () => import("../views/products/EditProfile.vue"),
+        },
       ],
     },
+
     // {
     //   path: "/",
     //   component: () => import("../layouts/FullLayout.vue"),

@@ -132,16 +132,8 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import { reactive, onMounted } from "vue";
-import { getSellerCategory } from "../plugin/Api.js";
-import { useAuthStore } from "../stores";
-// import * as Yup from "yup";
-// import { Form, Field, ErrorMessage } from "vee-validate";
-// error validation
-// const schema = Yup.object().shape({
-//   email: Yup.string().required("Email salah").typeError("Email tidak valid"),
-//   password: Yup.string().required("password salah").typeError("password salah"),
-// });
-
+import { getSellerCategory } from "../../plugin/Api.js";
+import { useAuthStore } from "../../stores";
 const products = reactive({
   category: [],
 });

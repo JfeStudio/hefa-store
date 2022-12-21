@@ -60,6 +60,17 @@ export const useAuthStore = defineStore("auth", {
           console.log(err);
         });
     },
+    // post input eidt
+    async postAuthEdit(edit) {
+      await instance
+        .put("/auth/user", edit)
+        .then(() => {
+          router.push("/daftar-semua-produk");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
 
     // get all product
     doLogout() {
