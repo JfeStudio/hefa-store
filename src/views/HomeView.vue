@@ -27,9 +27,11 @@ const products = reactive({
   perPage: 30,
   idCategory: 0,
   userId: {},
+  loading: false,
 });
 
 const onGetProduct = async () => {
+  products.loading = true;
   getProduct({
     page: 1,
     per_page: products.perPage,
@@ -37,6 +39,7 @@ const onGetProduct = async () => {
     search: TextSearch.value || "",
   }).then((res) => {
     products.product = res.data;
+    products.loading = false;
   });
 };
 
@@ -54,21 +57,6 @@ watchEffect(() => {
 onMounted(() => {
   onGetCategory();
 });
-
-// export default {
-//   components: {
-//     Swiper,
-//     SwiperSlide,
-//     Card,
-//     Intro,
-//     Categories,
-//   },
-//   setup() {
-//     return {
-//       modules: [Autoplay],
-//     };
-//   },
-// };
 </script>
 
 <template>
@@ -135,7 +123,32 @@ onMounted(() => {
   <!-- categories -->
   <div class="container mx-auto pt-11">
     <h2 class="text-xl font-semibold">Telusuri Kategori</h2>
+    <!-- animation category card -->
     <div
+      v-if="products.loading"
+      class="mt-5 flex gap-4 overflow-hidden overscroll-x-auto py-1"
+    >
+      <div
+        v-for="(item, index) in 7"
+        :key="index"
+        class="basis-1/4 rounded-lg border border-gray-100 p-2.5 shadow"
+      >
+        <div class="flex animate-pulse items-center space-x-2">
+          <div class="h-6 w-6 rounded-full bg-slate-300"></div>
+          <div class="flex-1">
+            <div class="space-y-2">
+              <div class="grid grid-cols-3 gap-4">
+                <div class="col-span-2 h-1 rounded bg-slate-300"></div>
+                <div class="col-span-1 h-1 rounded bg-slate-300"></div>
+              </div>
+              <div class="h-1 rounded bg-slate-300"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      v-else
       class="category-scroll mt-5 flex w-full items-center gap-x-3 overflow-x-scroll overscroll-x-auto pb-2"
     >
       <button
@@ -164,7 +177,30 @@ onMounted(() => {
   </div>
   <!-- card -->
   <div class="container relative mx-auto pt-8 pb-24">
-    <div class="flex flex-wrap items-start justify-start gap-5">
+    <!-- set animation card pulse -->
+    <div v-if="products.loading" class="flex flex-wrap gap-5">
+      <div
+        v-for="(item, index) in 10"
+        :key="index"
+        class="basis-[45%] rounded-md border border-gray-100 p-2 shadow md:basis-[30%] lg:basis-[18%]"
+      >
+        <div class="flex animate-pulse flex-col space-y-4">
+          <div class="h-28 w-full rounded-md bg-slate-400"></div>
+          <div class="flex-1 space-y-3 py-1">
+            <div class="h-2 rounded bg-slate-400"></div>
+            <div class="space-y-3">
+              <div class="grid grid-cols-3 gap-4">
+                <div class="col-span-2 h-2 rounded bg-slate-400"></div>
+                <div class="col-span-1 h-2 rounded bg-slate-400"></div>
+              </div>
+              <div class="h-2 rounded bg-slate-400"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end -->
+    <div v-else class="flex flex-wrap items-start justify-start gap-5">
       <Card
         v-for="card in products.product"
         @click="router.push('/detail/' + card.id)"
