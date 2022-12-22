@@ -1,6 +1,6 @@
 <template lang="">
   <div class="container mx-auto pt-24">
-    <h2 class="text-xl font-semibold">Buyer Product</h2>
+    <h2 class="text-xl font-semibold">Seller Product</h2>
     <!-- user baru -->
     <div
       class="mt-3 flex items-center justify-between rounded-2xl border border-slate-100 p-3 shadow"
@@ -59,7 +59,7 @@
             >
               {{ item.name }}
             </p>
-            <div class="mt-4">
+            <div v-if="!isOrdered" class="mt-4">
               <!-- Button trigger modal -->
               <button
                 type="button"
@@ -184,7 +184,7 @@
   </div>
 </template>
 <script setup>
-import { reactive, onMounted } from "vue";
+import { reactive, onMounted, computed } from "vue";
 import { instance } from "../plugin/Api.js";
 import { useRoute, useRouter } from "vue-router";
 import { useBuyerStore } from "../stores";
@@ -214,8 +214,15 @@ const postTawaran = () => {
   //   });
 };
 
+const isOrdered = computed(() => {
+  return useBuyerStore().dataBuyerOrder.find((e) => {
+    return e.product_id == idBuyerOrder;
+  });
+});
+
 onMounted(() => {
   getDetailItem();
+  useBuyerStore().getBuyerOrder();
 });
 
 // import "./style.css";

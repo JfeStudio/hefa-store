@@ -66,6 +66,11 @@ const router = createRouter({
           name: "Edit Profile",
           component: () => import("../views/products/EditProfile.vue"),
         },
+        {
+          path: "/detail-buyer",
+          name: "Detail Buyer",
+          component: () => import("../views/DetailProductBuyer.vue"),
+        },
       ],
     },
 

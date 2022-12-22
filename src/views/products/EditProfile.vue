@@ -11,10 +11,15 @@
       </RouterLink>
       <div class="mx-auto block max-w-md rounded-lg bg-transparent">
         <form @submit.prevent="addAccount">
-          <div class="mx-auto mb-6 max-w-max">
+          <div class="relative mx-auto mb-6 max-w-max">
             <div v-if="account.image">
-              <img :src="account.image_url" alt="" />
+              <img
+                class="h-40 w-40 rounded-full"
+                :src="account.image_url"
+                alt=""
+              />
               <button
+                class="absolute -top-3 -right-3 h-7 w-7 rounded-full border bg-red-600 text-sm font-semibold text-slate-50 transition-all hover:bg-red-700"
                 @click="
                   account.image = null;
                   account.image_url = null;
@@ -106,7 +111,7 @@
             >
             <input
               v-model="account.phone_number"
-              type="text"
+              type="number"
               class="form-control m-0 block w-full rounded-lg border border-solid border-gray-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out placeholder:text-sm focus:border-indidog focus:bg-transparent focus:text-gray-700 focus:outline-none"
               id="nohp"
               placeholder="+08666699999"
@@ -114,9 +119,9 @@
           </div>
           <button
             type="submit"
-            class="hover:bg--700 w-full rounded-lg border border-indidog bg-indidog px-6 py-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:border-indidog hover:bg-transparent hover:text-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
+            class="hover:bg--700 w-full rounded-lg border border-indidog bg-indidog px-6 py-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:border-indidog hover:bg-transparent hover:text-gray-700 hover:shadow-lg focus:opacity-95 focus:shadow-lg focus:outline-none focus:ring-0 active:opacity-95 active:shadow-lg"
           >
-            Terbitkan
+            Simpan
           </button>
         </form>
       </div>

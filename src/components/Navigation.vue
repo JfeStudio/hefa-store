@@ -369,10 +369,10 @@
                   >
                 </li>
                 <li>
-                  <a
-                    class="dropdown-item block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
-                    href="#"
-                    >Another action</a
+                  <RouterLink
+                    :to="{ name: 'Detail Buyer' }"
+                    class="dropdown-item block w-full cursor-pointer whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-gray-700 hover:bg-gray-100"
+                    >Detail Buyer</RouterLink
                   >
                 </li>
                 <li>

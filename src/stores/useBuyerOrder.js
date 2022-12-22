@@ -1,7 +1,9 @@
 import { defineStore } from "pinia";
 import { instance } from "../plugin/Api";
 export const useBuyerStore = defineStore("buyer", {
-  state: () => ({}),
+  state: () => ({
+    dataBuyerOrder: [],
+  }),
   getters: {
     // doubleCount: (state) => state.count * 2,
   },
@@ -15,6 +17,12 @@ export const useBuyerStore = defineStore("buyer", {
         .then(() => {
           alert("gg");
         });
+    },
+    async getBuyerOrder() {
+      await instance.get("/buyer/order").then((res) => {
+        this.dataBuyerOrder = res.data;
+        // alert("gg");
+      });
     },
   },
 });
