@@ -4,6 +4,9 @@ import router from "./router";
 import "tw-elements";
 import "./assets/main.css";
 import { createPinia } from "pinia";
+// import moment from "moment";
+
+// Vue.prototype.moment = moment;
 
 const pinia = createPinia();
 const app = createApp(App);

@@ -29,13 +29,12 @@
   </div> -->
 </template>
 <script setup>
-import { RouterLink } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
 import { reactive, onMounted } from "vue";
 import { useAuthStore } from "../../stores";
 import SellerCard from "../../components/Card.vue";
 import { getSeller } from "../../plugin/Api.js";
 import Card from "../../components/Card.vue";
-import { useRouter } from "vue-router";
 
 const router = useRouter();
 

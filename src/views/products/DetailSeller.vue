@@ -92,7 +92,6 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { reactive, onMounted } from "vue";
 import { instance } from "../../plugin/Api.js";
 import { useRoute, useRouter } from "vue-router";
-import { getSellerOrder } from "../../stores";
 // Import Swiper styles
 import "swiper/css";
 
@@ -119,15 +118,8 @@ const deleteSellerProduct = async () => {
   });
 };
 
-const isOrdered = computed(() => {
-  return getSellerOrder().orderBuyer.find((e) => {
-    return e.product_id == idDetailItem;
-  });
-});
-
 onMounted(() => {
   getDetailSellerProduct();
-  useSellerOrder().getSellerOrder();
 });
 
 // import "./style.css";

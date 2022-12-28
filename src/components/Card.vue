@@ -12,12 +12,17 @@
       >
     </div>
     <div class="pt-2 pb-1">
-      <h3
-        class="card-title text-[.925rem] font-semibold capitalize text-slate-800"
-      >
-        <!-- {{ card.title }} -->
-        {{ title }}
-      </h3>
+      <div class="flex items-center justify-between">
+        <h3
+          class="card-title text-[.925rem] font-semibold capitalize text-slate-800"
+        >
+          <!-- {{ card.title }} -->
+          {{ title }}
+        </h3>
+        <del class="min-w-max text-xs text-slate-400"
+          >Rp {{ nego_price ?? "65000" }}</del
+        >
+      </div>
       <span class="text-sm text-slate-600">Rp {{ price }}</span>
       <!-- <div class="flex flex-col">
         <span
@@ -32,12 +37,16 @@
       <p class="card-description mt-2 mb-1 text-sm capitalize text-gray-500">
         {{ description }}
       </p>
+      <p class="text-xs text-slate-400">
+        {{ moment(date).format("MMMM Do, YYYY") }}
+      </p>
     </div>
   </div>
 </template>
 <script setup>
 import { reactive } from "vue";
 import { RouterLink } from "vue-router";
+import moment from "moment";
 defineProps({
   img: {
     type: String,
@@ -55,7 +64,15 @@ defineProps({
     type: String,
     required: true,
   },
+  date: {
+    type: String,
+    required: true,
+  },
   price: {
+    type: Number,
+    required: true,
+  },
+  nego_price: {
     type: Number,
     required: true,
   },
