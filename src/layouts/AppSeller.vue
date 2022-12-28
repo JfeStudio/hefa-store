@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="container mx-auto h-[130vh] pt-24">
+  <div class="container mx-auto pt-24">
     <h2 class="text-xl font-semibold">Daftar Jual Saya</h2>
     <!-- user -->
     <div
