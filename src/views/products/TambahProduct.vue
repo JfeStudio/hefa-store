@@ -94,9 +94,20 @@
             ></textarea>
           </div>
           <div class="mb-6">
-            <div v-if="data.form.imageProduct">
-              <img :src="data.form.previewProduct" alt="" />
-              <button @click="data.form.imageProduct = null" type="submit">
+            <div
+              v-if="data.form.imageProduct"
+              class="relative inline-flex shadow-sm"
+            >
+              <img
+                :src="data.form.previewProduct"
+                alt=""
+                class="w-4h-48 h-48 object-cover"
+              />
+              <button
+                class="absolute -top-3 -right-3 h-7 w-7 rounded-full border bg-red-600 text-sm font-semibold text-slate-50 transition-all hover:bg-red-700"
+                @click="data.form.imageProduct = null"
+                type="submit"
+              >
                 X
               </button>
             </div>
@@ -119,7 +130,7 @@
             </button>
             <button
               type="submit"
-              class="hover:bg--700 w-full rounded-lg border border-indidog bg-indidog px-6 py-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:border-indidog hover:bg-transparent hover:text-gray-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
+              class="hover:bg--700 w-full rounded-lg border border-indidog bg-indidog px-6 py-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:border-indidog hover:bg-transparent hover:text-gray-700 hover:shadow-lg focus:opacity-95 focus:shadow-lg focus:outline-none focus:ring-0 active:opacity-95 active:shadow-lg"
             >
               Terbitkan
             </button>

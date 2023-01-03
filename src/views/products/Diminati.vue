@@ -1,19 +1,21 @@
 <template lang="">
-  <CardSellerOrder
-    v-for="card in useSellerOrder().dataSellerOrder"
-    @click="router.push('/detail-seller-product/' + card.id)"
-    class="basis-[45%] md:basis-[30%] lg:basis-1/5"
-    :key="card.id"
-    :title="card.product_name"
-    :img="card.image_product"
-    :description="card.description"
-    :price="card.base_price"
-    :nego_price="card.price"
-    :location="card.location"
-    :status="card.status"
-    :date="card.transaction_date"
-    :imgName="card.image_name"
-  />
+  <div class="flex flex-wrap items-stretch justify-start gap-5 lg:basis-full">
+      <CardSellerOrder
+        v-for="card in useSellerOrder().dataSellerOrder"
+        @click="router.push('/detail-seller-product/' + card.id)"
+        class="basis-[45%] md:basis-[30%] lg:basis-1/5"
+        :key="card.id"
+        :title="card.product_name"
+        :img="card.image_product"
+        :description="card.description"
+        :price="card.base_price"
+        :nego_price="card.price"
+        :location="card.location"
+        :status="card.status"
+        :date="card.transaction_date"
+        :imgName="card.image_name"
+      />
+  </div>
   <!-- <div
       v-for="item in useSellerOrder().dataSellerOrder"
       :key="item.id"

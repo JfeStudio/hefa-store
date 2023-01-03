@@ -68,5 +68,5 @@ export {
   getDetailProduct,
   getSellerCategory,
   getEdit,
-  //   getDetailSellerProduct,
+    // getDetailSellerProduct,
 };
