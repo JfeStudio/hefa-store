@@ -50,6 +50,12 @@ const router = createRouter({
               component: () => import("../views/products/Diminati.vue"),
             },
             {
+              path: "/detail-diminati/:id",
+              name: "Detail Diminati",
+              component: () =>
+                import("../views/products/DetailSellerOrder.vue"),
+            },
+            {
               path: "/daftar-terjual",
               name: "Daftar Terjual",
               component: () => import("../views/products/Terjual.vue"),
